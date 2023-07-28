@@ -4,7 +4,7 @@ module.exports = function (environment) {
   const ENV = {
     modulePrefix: 'delta-tutorial-books-frontend',
     environment,
-    rootURL: '/',
+    rootURL: '/books-frontend/',
     locationType: 'history',
     EmberENV: {
       EXTEND_PROTOTYPES: false,
@@ -13,7 +13,7 @@ module.exports = function (environment) {
         // e.g. EMBER_NATIVE_DECORATOR_SUPPORT: true
       },
     },
-
+    ENABLE_CREATION: false, // NOTE: should be switched on for the producer version
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created

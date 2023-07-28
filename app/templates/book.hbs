@@ -1,0 +1,30 @@
+{{page-title "Book"}}
+{{outlet}}
+<ul>
+  {{#each @model as |book|}}
+    <li>{{book.title}} <small>{{book.isbn}}</small>
+    {{#if this.creationEnabled}}
+    <button {{on "click" (fn this.removeBook book)}}>Remove</button>
+    {{/if}}
+    </li>
+  {{/each}}
+</ul>
+
+{{#if this.creationEnabled}}
+<hr />
+<form {{on "submit" this.createBook}} >
+  <dl>
+    <dt>Book title</dt>
+    <dd>
+       <Input @value={{this.newTitle}}
+              placeholder="Thinking Fast and Slow" />
+    </dd>
+    <dt>ISBN</dt>
+    <dd>
+      <Input @value={{this.newIsbn}}
+             placeholder="978-0374533557" />
+    </dd>
+  </dl>
+  <button type="submit">Create</button>
+</form>
+{{/if}}
